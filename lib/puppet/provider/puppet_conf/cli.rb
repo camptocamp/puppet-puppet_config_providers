@@ -55,6 +55,6 @@ Puppet::Type.type(:puppet_conf).provide(:cli) do
   end
 
   def value=(value)
-    puppet('config', 'set', resource[key], value, '--section', resource[section])
+    puppet('config', 'set', resource[:key], value, '--section', resource[:section])
   end
 end
