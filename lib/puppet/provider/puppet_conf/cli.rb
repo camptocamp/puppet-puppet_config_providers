@@ -2,6 +2,9 @@ Puppet::Type.type(:puppet_conf).provide(:cli) do
 
   mk_resource_methods
 
+  defaultfor :feature => :puppet_config_set
+  confine :feature => :puppet_config_set
+
   commands :puppet => 'puppet'
 
   def self.instances
