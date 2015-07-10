@@ -1,0 +1,29 @@
+{
+  "name": "camptocamp-puppet_conf_providers",
+  "version": "0.0.1",
+  "author": "Camptocamp",
+  "summary": "Puppet puppet_conf_providers module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/camptocamp/puppet-puppet_conf_providers",
+  "project_page": "https://github.com/camptocamp/puppet-puppet_conf_providers",
+  "issues_url": "https://github.com/camptocamp/puppet-puppet_conf_providers/issues",
+  "dependencies": [
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ]
+}
