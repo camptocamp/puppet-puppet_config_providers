@@ -17,7 +17,7 @@ describe Puppet::Type.type(:puppet_conf).provider(:cli) do
         end
         context 'when validating instances' do
           before :each do
-            described_class.expects(:puppet).with('master', '--configprint', 'all').returns \
+            described_class.expects(:puppet).with('config', 'print', 'all', '--section', 'master').returns \
 'agent_catalog_run_lockfile = /var/lib/puppet/state/agent_catalog_run.lock
 agent_disabled_lockfile = /var/lib/puppet/state/agent_disabled.lock
 allow_duplicate_certs = false

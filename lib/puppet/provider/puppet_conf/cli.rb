@@ -5,7 +5,7 @@ Puppet::Type.type(:puppet_conf).provide(:cli) do
   commands :puppet => 'puppet'
 
   def self.instances
-    puppet('master', '--configprint', 'all').split("\n").collect do |line|
+    puppet('config', 'print', 'all', '--section', 'master').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "master/#{key}",
