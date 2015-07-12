@@ -37,7 +37,7 @@ Puppet::Type.type(:puppet_conf).provide(:cli) do
     end
   end
 
-  def self.prefetch
+  def self.prefetch(resources)
     items = instances
     resources.keys.each do |name|
       if provider = items.find{ |pkg| pkg.name == name }
