@@ -10,4 +10,4 @@ Puppet_config_providers
 
 Puppet custom Type and Providers to manage puppet.conf
 
-Only work with puppet 3.5+ fir the moment
+Only work with puppet 3.5+ for the moment
