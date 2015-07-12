@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Puppet::Type.type(:puppet_conf) do
+describe Puppet::Type.type(:puppet_config) do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       before :each do

@@ -1,4 +1,4 @@
-Puppet::Type.newtype(:puppet_conf) do
+Puppet::Type.newtype(:puppet_config) do
   @doc = "Manages Puppet configuration."
 
   ensurable

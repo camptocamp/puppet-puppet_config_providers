@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Puppet::Type.type(:puppet_conf).provider(:cli) do
+describe Puppet::Type.type(:puppet_config).provider(:cli) do
 
   on_supported_os.each do |os, facts|
     context "on #{os}" do

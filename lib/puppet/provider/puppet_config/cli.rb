@@ -1,4 +1,4 @@
-Puppet::Type.type(:puppet_conf).provide(:cli) do
+Puppet::Type.type(:puppet_config).provide(:cli) do
 
   mk_resource_methods
 
