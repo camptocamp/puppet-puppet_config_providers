@@ -11,3 +11,21 @@ Puppet_config_providers
 Puppet custom Type and Providers to manage puppet.conf
 
 Only work with puppet 3.5+ for the moment
+
+Usage
+-----
+
+```puppet
+puppet_config { 'master/parser':
+  value => 'future',
+}
+```
+
+or
+
+```puppet
+puppet_config { 'parser':
+  section => 'master',
+  value   => 'future',
+}
+```
