@@ -19,3 +19,14 @@ matrix:
     env: PUPPET_GEM_VERSION="~> 4.0"
 notifications:
   email: false
+deploy:
+  provider: puppetforge
+  user: camptocamp
+  password:
+    secure: "CJlfegVu7gqwIC+g3D/p3JsCOQlizyLL6xGqd/1DTf3thjE1B2WWCuShwgATE85YEX2pTUrAX1h+MHUT+G7eCAygVj1PC5CK2rRud7CNQRaEZS+cLJkCkmFiQ8f7ePpYwYbgDNkSRPhq/5Ii12TWGRm/UFEmJ0nYcfmYjddquVxpRMGmiTXDhQMcdtWWloD5U5zyAIeK9rGbIOiIeUApUL5Xcfy4sLv6wd83zqtMotds+TygIxNrHarbzrduJzCB4Zk8Thr0f6ZwoLhe9m3fEbb+DJNhMQB5TjgepbYTjNsISVrHm1e+bQCoJv+PayDIi66uxWbbxc7xJh+ddDbO3Dx/kLNtZUhM2Bxk9kF8IJEEagALHO2UHG7u/0qDgK7Uu8P2uDpkTI44pjtOM/ea4ixD9bLJSPU8ESkZvrvuEMqOFoM8eax0yZ+ox74TnAQWuuLCEyH38WRo7aWlZRBvQGJm0T8NRcXVfMHOL8OdukvvGK0lAx9KOfm3fcTaRH4Td1ldL5NRYRvgP8ZOZmkdCXp54H4nvW5Nv1W8DGhnOY5BkgKzNR1g2w+Th65t4PeXJ0wTUbGD6ZlVUrQuTJ0L7s0ihlCuF/8/Gi7LaEYF90LjrDzZP1Ra/h3L6CRT0j854Ft23POaLVmxsKBzFObXv8n/M+V2kRXJ69PvKoWaMKU="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true
+    # Only publish if our main Ruby target builds
+    rvm: 1.9.3
