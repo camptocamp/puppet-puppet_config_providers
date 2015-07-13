@@ -37,7 +37,7 @@ allow_variables_with_dashes = false
 '
           end
           it 'should return no resources' do
-            expect(described_class.instances.size).to eq(4)
+            expect(described_class.instances.size).to eq(12)
           end
         end
       end
