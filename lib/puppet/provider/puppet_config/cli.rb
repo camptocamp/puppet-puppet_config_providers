@@ -8,7 +8,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   commands :puppet => 'puppet'
 
   def self.instances
-    puppet('config', 'print', 'all', '--section', 'main').split("\n").collect do |line|
+    main_config = puppet('config', 'print', 'all', '--section', 'main').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "main/#{key}",
@@ -17,7 +17,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
         :value  => value,
       })
     end
-    puppet('config', 'print', 'all', '--section', 'master').split("\n").collect do |line|
+    master_config = puppet('config', 'print', 'all', '--section', 'master').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "master/#{key}",
@@ -26,7 +26,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
         :value  => value,
       })
     end
-    puppet('config', 'print', 'all', '--section', 'agent').split("\n").collect do |line|
+    agent_config = puppet('config', 'print', 'all', '--section', 'agent').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "agent/#{key}",
@@ -35,6 +35,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
         :value  => value,
       })
     end
+    [ main_config, master_config, agent_config].flatten
   end
 
   def self.prefetch(resources)
