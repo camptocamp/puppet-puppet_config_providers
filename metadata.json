@@ -1,6 +1,6 @@
 {
   "name": "camptocamp-puppet_config_providers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Camptocamp",
   "summary": "Puppet puppet_config_providers module",
   "license": "Apache-2.0",
@@ -8,6 +8,7 @@
   "project_page": "https://github.com/camptocamp/puppet-puppet_config_providers",
   "issues_url": "https://github.com/camptocamp/puppet-puppet_config_providers/issues",
   "dependencies": [
+
   ],
   "operatingsystem_support": [
     {
