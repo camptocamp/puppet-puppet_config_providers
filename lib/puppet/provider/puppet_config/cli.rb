@@ -7,7 +7,9 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   defaultfor :feature => :puppet_config_set
   confine :feature => :puppet_config_set
 
-  commands :puppet => 'puppet'
+  has_command(:puppet, 'puppet') do
+    environment :PATH => '/opt/puppetlabs/bin:$PATH'
+  end
 
   def self.instances
     main_config = puppet('config', 'print', 'all', '--section', 'main').split("\n").collect do |line|
