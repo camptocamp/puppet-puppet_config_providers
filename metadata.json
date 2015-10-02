@@ -1,6 +1,6 @@
 {
   "name": "camptocamp-puppet_config_providers",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Camptocamp",
   "summary": "Puppet puppet_config_providers module",
   "license": "Apache-2.0",
@@ -22,6 +22,7 @@
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
+        "5",
         "6",
         "7"
       ]
