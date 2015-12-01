@@ -58,7 +58,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   end
 
   def value=(value)
-    Puppet::Face[:config, '0.0.1'].set(resource[:key], value, { :section => resource[:section] })
+    puppet('config', 'set', resource[:key], value, '--section', resource[:section])
     @property_hash[:value] = value
   end
 end
