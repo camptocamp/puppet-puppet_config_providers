@@ -7,7 +7,11 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   defaultfor :feature => :puppet_config_set
   confine :feature => :puppet_config_set
 
-  commands :puppet => 'puppet'
+  if Facter.value(:rubysitedir) =~ /puppetlabs/
+    commands :puppet => '/opt/puppetlabs/bin/puppet'
+  else
+    commands :puppet => '/usr/bin/puppet'
+  end
 
   def self.instances
     main_config = puppet('config', 'print', 'all', '--section', 'main').split("\n").collect do |line|
