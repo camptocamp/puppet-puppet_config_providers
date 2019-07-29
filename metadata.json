@@ -1,6 +1,6 @@
 {
   "name": "camptocamp-puppet_config_providers",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "author": "Camptocamp",
   "summary": "Puppet puppet_config_providers module",
   "license": "Apache-2.0",

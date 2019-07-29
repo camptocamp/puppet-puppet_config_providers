@@ -1,3 +1,7 @@
+## 2019-07-29 - Release 0.2.0
+
+Honor confdir in prefetch and setter (GH #6)
+
 ## 2015-12-01 - Release 0.1.3
 
 Fix changing / adding configuration in puppet.conf options doesn't work
