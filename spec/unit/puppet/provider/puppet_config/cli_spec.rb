@@ -17,19 +17,20 @@ describe Puppet::Type.type(:puppet_config).provider(:cli) do
         end
         context 'when validating instances' do
           before :each do
-            described_class.expects(:puppet).with('config', 'print', 'all', '--section', 'main').returns \
+            Puppet[:confdir] = '/etc/puppetlabs/puppet'
+            described_class.expects(:puppet).with('config', 'print', 'all', '--confdir', '/etc/puppetlabs/puppet', '--section', 'main').returns \
 'agent_catalog_run_lockfile = /var/lib/puppet/state/agent_catalog_run.lock
 agent_disabled_lockfile = /var/lib/puppet/state/agent_disabled.lock
 allow_duplicate_certs = false
 allow_variables_with_dashes = false
 '
-            described_class.expects(:puppet).with('config', 'print', 'all', '--section', 'master').returns \
+            described_class.expects(:puppet).with('config', 'print', 'all', '--confdir', '/etc/puppetlabs/puppet', '--section', 'master').returns \
 'agent_catalog_run_lockfile = /var/lib/puppet/state/agent_catalog_run.lock
 agent_disabled_lockfile = /var/lib/puppet/state/agent_disabled.lock
 allow_duplicate_certs = false
 allow_variables_with_dashes = false
 '
-            described_class.expects(:puppet).with('config', 'print', 'all', '--section', 'agent').returns \
+            described_class.expects(:puppet).with('config', 'print', 'all', '--confdir', '/etc/puppetlabs/puppet', '--section', 'agent').returns \
 'agent_catalog_run_lockfile = /var/lib/puppet/state/agent_catalog_run.lock
 agent_disabled_lockfile = /var/lib/puppet/state/agent_disabled.lock
 allow_duplicate_certs = false

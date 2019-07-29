@@ -13,8 +13,13 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
     commands :puppet => '/usr/bin/puppet'
   end
 
+
+  def self.confdir
+    Puppet[:confdir]
+  end
+
   def self.instances
-    main_config = puppet('config', 'print', 'all', '--section', 'main').split("\n").collect do |line|
+    main_config = puppet('config', 'print', 'all', '--confdir', confdir, '--section', 'main').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "main/#{key}",
@@ -23,7 +28,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
         :value  => value,
       })
     end
-    master_config = puppet('config', 'print', 'all', '--section', 'master').split("\n").collect do |line|
+    master_config = puppet('config', 'print', 'all', '--confdir', confdir, '--section', 'master').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "master/#{key}",
@@ -32,7 +37,7 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
         :value  => value,
       })
     end
-    agent_config = puppet('config', 'print', 'all', '--section', 'agent').split("\n").collect do |line|
+    agent_config = puppet('config', 'print', 'all', '--confdir', confdir, '--section', 'agent').split("\n").collect do |line|
       key, value = line.split(' = ')
       new({
         :name   => "agent/#{key}",
@@ -58,11 +63,11 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   end
 
   def create
-    Puppet::Error 'You should not have to create new entries'
+    raise Puppet::Error, 'You should not have to create new entries'
   end
 
   def value=(value)
-    puppet('config', 'set', resource[:key], value, '--section', resource[:section])
+    puppet('config', 'set', resource[:key], value, '--section', resource[:section], '--confdir', self.class.confdir)
     @property_hash[:value] = value
   end
 end
