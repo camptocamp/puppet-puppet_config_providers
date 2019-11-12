@@ -25,16 +25,16 @@ Puppet::Type.newtype(:puppet_config) do
       [
         /^((\S+)\/(\S+))$/,
         [
-          [ :name, lambda{|x| x} ],
-          [ :section, lambda{|x| x} ],
-          [ :key, lambda{|x| x} ],
+          [ :name ],
+          [ :section ],
+          [ :key ],
         ],
       ],
       [
         /((.*))/,
         [
-          [ :name, lambda{|x| x} ],
-          [ :key, lambda{|x| x} ],
+          [ :name ],
+          [ :key ],
         ],
       ],
     ]
