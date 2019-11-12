@@ -1,3 +1,7 @@
+## 2019-11-12 - Release 0.3.0
+
+Fix title_patterns to avoid lambdas
+
 ## 2019-07-29 - Release 0.2.0
 
 Honor confdir in prefetch and setter (GH #6)
