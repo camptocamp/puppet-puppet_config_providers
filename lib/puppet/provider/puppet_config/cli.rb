@@ -63,7 +63,8 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   end
 
   def create
-    raise Puppet::Error, 'You should not have to create new entries'
+    Puppet.warning('You should not have to create new entries')
+    self.value = resource[:value]
   end
 
   def value=(value)
