@@ -27,6 +27,16 @@
         "6",
         "7"
       ]
+    },
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2012",
+        "Server 2012 R2",
+        "Server 2016",
+        "Server 2019",
+        "Windows 10"
+      ]
     }
   ]
 }
