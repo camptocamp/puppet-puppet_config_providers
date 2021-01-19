@@ -7,10 +7,14 @@ Puppet::Type.type(:puppet_config).provide(:cli) do
   defaultfor :feature => :puppet_config_set
   confine :feature => :puppet_config_set
 
-  if Facter.value(:rubysitedir) =~ /puppetlabs/
-    commands :puppet => '/opt/puppetlabs/bin/puppet'
+  if Facter.value(:osfamily) =~ /windows/
+    commands :puppet => 'C:/Program Files/Puppet Labs/Puppet/bin/puppet.bat'
   else
-    commands :puppet => '/usr/bin/puppet'
+    if Facter.value(:rubysitedir) =~ /puppetlabs/
+      commands :puppet => '/opt/puppetlabs/bin/puppet'
+    else
+      commands :puppet => '/usr/bin/puppet'
+    end
   end
 
 
